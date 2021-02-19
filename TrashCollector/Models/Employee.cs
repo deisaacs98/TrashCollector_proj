@@ -1,4 +1,6 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,6 +19,10 @@ namespace TrashCollector.Models
         public int ZipCode { get; set; }
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }
-        
+
+        [ForeignKey("IdentityUser")]
+        public string IdentityUserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }
+
     }
 }

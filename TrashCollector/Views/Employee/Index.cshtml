@@ -1,8 +1,8 @@
-﻿@model IEnumerable<TrashCollector.Models.Customer>
+﻿@model IEnumerable<TrashCollector.Models.Employee>
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Employee/ELayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -20,22 +20,10 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.ZipCode)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DateOfBirth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegularPickupDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OneTimePickupDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IdentityUser)
@@ -53,22 +41,10 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
+                @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegularPickupDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendEndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimePickupDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdentityUser.Id)

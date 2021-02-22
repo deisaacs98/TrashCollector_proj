@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrashCollector.Data;
 
-namespace TrashCollector.Data.Migrations
+namespace TrashCollector.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -48,15 +48,15 @@ namespace TrashCollector.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4ab2a1ff-a326-4ecb-a5e9-fa81501ce536",
-                            ConcurrencyStamp = "710a1151-635b-47bf-93ec-966f10d69a5c",
+                            Id = "148d53fd-fc57-4241-826b-b1f7df6e029d",
+                            ConcurrencyStamp = "95097e5a-456e-436d-bda2-fd675e13f8cf",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "2267f8a1-c766-4a4c-a2f6-690623a9a052",
-                            ConcurrencyStamp = "2ccb11e6-d10d-459f-9e8a-60a0ebca8969",
+                            Id = "1a8dc572-2922-4779-a792-8180615c8ad6",
+                            ConcurrencyStamp = "e03f4b58-6680-4d04-8cf2-ad4584762390",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_EmployeeLayout";
 }
 
 <h1>Index</h1>
@@ -21,7 +22,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ZipCode)
             </th>
-            
             <th>
                 @Html.DisplayNameFor(model => model.IdentityUser)
             </th>
@@ -40,7 +40,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
-            
             <td>
                 @Html.DisplayFor(modelItem => item.IdentityUser.Id)
             </td>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TrashCollector.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -165,7 +165,6 @@ namespace TrashCollector.Migrations
                     State = table.Column<string>(nullable: true),
                     ZipCode = table.Column<int>(nullable: false),
                     CompletedPickups = table.Column<int>(nullable: false),
-                    DateOfBirth = table.Column<DateTime>(nullable: false),
                     RegularPickupDay = table.Column<int>(nullable: false),
                     SuspendStartDate = table.Column<DateTime>(nullable: false),
                     SuspendEndDate = table.Column<DateTime>(nullable: false),
@@ -208,12 +207,12 @@ namespace TrashCollector.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "cf773710-83b7-4bd6-89ea-a8cecad7f5c3", "67c92ebe-c3c5-4c0e-86f4-5a838cc66a65", "Customer", "CUSTOMER" });
+                values: new object[] { "be14c0b0-72cd-4128-9d4a-7a5d5949971c", "3af3c312-fddb-498f-83a3-360772c5052e", "Customer", "CUSTOMER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "ea0ae2fe-3bf1-4a36-b42c-b2f9c4b5efe1", "84175871-84fe-4aad-a071-452fc6ce65f3", "Employee", "EMPLOYEE" });
+                values: new object[] { "38003f27-86b8-4c04-a773-202bb19824fc", "6fa02584-d48c-4b6b-9caf-744a1f2628fa", "Employee", "EMPLOYEE" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

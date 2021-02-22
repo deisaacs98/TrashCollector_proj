@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "_CustomerLayout";
 }
 
 <h1>Edit</h1>
@@ -28,7 +29,26 @@
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
-            
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZipCode" class="control-label"></label>
+                <input asp-for="ZipCode" class="form-control" />
+                <span asp-validation-for="ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompletedPickups" class="control-label"></label>
+                <input asp-for="CompletedPickups" class="form-control" />
+                <span asp-validation-for="CompletedPickups" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="RegularPickupDay" class="control-label"></label>
                 <select asp-for="RegularPickupDay" class="form-control"></select>

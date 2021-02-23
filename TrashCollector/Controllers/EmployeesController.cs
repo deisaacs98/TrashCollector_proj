@@ -156,5 +156,40 @@ namespace TrashCollector.Controllers
         {
             return _context.Employees.Any(e => e.Id == id);
         }
+
+        // GET: Employees/CheckPickups/5
+        public async Task<IActionResult> CheckPickups(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var employee = await _context.Employees
+                .Include(e => e.IdentityUser)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            var pickups = _context.Customers.Include(m => m.ZipCode == employee.ZipCode && m.NextPickupDate == DateTime.Today);
+            return View(await pickups.ToListAsync());
+        }
+
+        
+
+        // POST: Employees/ConfirmPickup/5
+        [HttpPost, ActionName("ConfirmPickup")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ConfirmPickup(int id)
+        {
+            var customer = await _context.Customers.FindAsync(id);
+            customer.CompletedPickups++;
+            if(customer.)
+
+            _context.Customers.Update(customer);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

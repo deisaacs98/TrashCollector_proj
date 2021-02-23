@@ -29,9 +29,44 @@ namespace TrashCollector.Models
         public DateTime? SuspendEndDate { get; set; }
         public DateTime? OneTimePickupDate { get; set; }
 
+        public DateTime? NextPickupDate()
+        {
+            
+            //Picked up on regular pickup day
+            if(DateTime.Today.DayOfWeek==RegularPickupDay)
+            {
+           
+                if(OneTimePickupDate>DateTime.Today.AddDays(7)||OneTimePickupDate==null)
+                {
+                    if (DateTime.Today.AddDays(7) <= SuspendStartDate||SuspendStartDate==null)
+                    {
+                        return DateTime.Today.AddDays(7);
+                    }
+                    else if (DateTime.Today.AddDays(7)<=SuspendEndDate)
+                    {
+                        if(OneTimePickupDate)
+                    }
+                    
+                }
+                else
+                {
+                    if (OneTimePickupDate >= SuspendStartDate && OneTimePickupDate <= SuspendEndDate)
+                    {
+                        return DateTime.Today.AddDays(7);
+                    }
+                }
+            }
+            else if(DateTime.Today==OneTimePickupDate)
+            {
+
+            }
+        }
+        public double Balance { get; set; }
+
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
 
+        
     }
 }

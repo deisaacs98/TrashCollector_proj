@@ -25,9 +25,9 @@ namespace TrashCollector.Models
 
         public DayOfWeek RegularPickupDay { get; set; }
 
-        public DateTime SuspendStartDate { get; set; }
-        public DateTime SuspendEndDate { get; set; }
-        public DateTime OneTimePickupDate { get; set; }
+        public DateTime? SuspendStartDate { get; set; }
+        public DateTime? SuspendEndDate { get; set; }
+        public DateTime? OneTimePickupDate { get; set; }
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }

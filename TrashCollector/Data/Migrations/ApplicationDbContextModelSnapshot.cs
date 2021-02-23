@@ -48,15 +48,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "be14c0b0-72cd-4128-9d4a-7a5d5949971c",
-                            ConcurrencyStamp = "3af3c312-fddb-498f-83a3-360772c5052e",
+                            Id = "0343f4de-fa8a-4ce7-b249-d9c8dc26899c",
+                            ConcurrencyStamp = "3e6bd4fe-dc75-4a5d-aa0b-a4caa07e8819",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "38003f27-86b8-4c04-a773-202bb19824fc",
-                            ConcurrencyStamp = "6fa02584-d48c-4b6b-9caf-744a1f2628fa",
+                            Id = "09b44efd-ead6-4938-a40c-11b3a029c0e3",
+                            ConcurrencyStamp = "828c3cce-856e-4d90-b51c-a51813848df6",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -256,7 +256,7 @@ namespace TrashCollector.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("OneTimePickupDate")
+                    b.Property<DateTime?>("OneTimePickupDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("RegularPickupDay")
@@ -265,10 +265,10 @@ namespace TrashCollector.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("SuspendEndDate")
+                    b.Property<DateTime?>("SuspendEndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("SuspendStartDate")
+                    b.Property<DateTime?>("SuspendStartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("ZipCode")

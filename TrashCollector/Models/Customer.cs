@@ -21,7 +21,7 @@ namespace TrashCollector.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
-        public int CompletedPickups { get; set; }
+        public List<DateTime> CompletedPickups { get; set; }
 
         public DayOfWeek RegularPickupDay { get; set; }
 
@@ -29,38 +29,8 @@ namespace TrashCollector.Models
         public DateTime? SuspendEndDate { get; set; }
         public DateTime? OneTimePickupDate { get; set; }
 
-        public DateTime? NextPickupDate()
-        {
-            
-            //Picked up on regular pickup day
-            if(DateTime.Today.DayOfWeek==RegularPickupDay)
-            {
-           
-                if(OneTimePickupDate>DateTime.Today.AddDays(7)||OneTimePickupDate==null)
-                {
-                    if (DateTime.Today.AddDays(7) <= SuspendStartDate||SuspendStartDate==null)
-                    {
-                        return DateTime.Today.AddDays(7);
-                    }
-                    else if (DateTime.Today.AddDays(7)<=SuspendEndDate)
-                    {
-                        if(OneTimePickupDate)
-                    }
-                    
-                }
-                else
-                {
-                    if (OneTimePickupDate >= SuspendStartDate && OneTimePickupDate <= SuspendEndDate)
-                    {
-                        return DateTime.Today.AddDays(7);
-                    }
-                }
-            }
-            else if(DateTime.Today==OneTimePickupDate)
-            {
-
-            }
-        }
+        public DateTime? NextPickupDate { get; set; }
+        
         public double Balance { get; set; }
 
         [ForeignKey("IdentityUser")]

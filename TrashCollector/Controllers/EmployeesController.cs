@@ -158,7 +158,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employees/CheckPickups/5
-        public async Task<IActionResult> CheckPickups(int? id)
+        public async Task<IActionResult> CheckPickups(int? id, DateTime pickupDate)
         {
             if (id == null)
             {
@@ -172,8 +172,11 @@ namespace TrashCollector.Controllers
             {
                 return NotFound();
             }
-            var pickups = _context.Customers.Include(m => m.ZipCode == employee.ZipCode && m.NextPickupDate == DateTime.Today);
-            return View(await pickups.ToListAsync());
+            var pickups = _context.Customers.Where(m => m.ZipCode == employee.ZipCode&&
+                !m.CompletedPickups.Contains(pickupDate)&&
+                (m.OneTimePickupDate == pickupDate) || (m.RegularPickupDay == pickupDate.DayOfWeek&&
+                (m.SuspendStartDate==null||m.SuspendStartDate>=pickupDate||m.SuspendEndDate<=pickupDate))).ToList();
+            return View(pickups);
         }
 
         
@@ -183,10 +186,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ConfirmPickup(int id)
         {
-            var customer = await _context.Customers.FindAsync(id);
-            customer.CompletedPickups++;
-            if(customer.)
-
+            var customer = await _context.Customers.FirstOrDefaultAsync(m=>m.Id==id);
+            customer.CompletedPickups.Add(DateTime.Today);
             _context.Customers.Update(customer);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

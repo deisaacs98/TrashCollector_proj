@@ -208,7 +208,11 @@ namespace TrashCollector.Controllers
             }
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", customer.IdentityUserId);
             return View(customer);
+
+
         }
+
         
+
     }
 }

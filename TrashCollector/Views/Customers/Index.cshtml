@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TrashCollector.Models.Customer>
+﻿@model TrashCollector.Models.Customer
 
 @{
     ViewData["Title"] = "Index";
@@ -9,8 +9,10 @@
 
 <p>
     <a asp-action="Create">Create New</a>
+    <a asp-action="Suspend" asp-route-id="@Model.Id">Suspend Pickup</a>
+    <a asp-action="Account Details" asp-route-id="@Model.Id">Details</a>
 </p>
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -63,9 +65,6 @@
                 @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompletedPickups)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.RegularPickupDay)
             </td>
             <td>
@@ -79,5 +78,5 @@
             </td>
         </tr>
 }
-    </tbody>
-</table>
+    </tbody>*@
+@*</table>*@

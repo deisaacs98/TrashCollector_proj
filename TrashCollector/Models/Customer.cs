@@ -21,7 +21,8 @@ namespace TrashCollector.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
-        public List<DateTime> CompletedPickups { get; set; }
+        [NotMapped]
+        public ICollection<DateTime> CompletedPickups { get; set; }
 
         public DayOfWeek RegularPickupDay { get; set; }
 

@@ -174,8 +174,8 @@ namespace TrashCollector.Controllers
             }
             var pickups = _context.Customers.Where(m => m.ZipCode == employee.ZipCode&&
                 !m.CompletedPickups.Contains(pickupDate)&&
-                (m.OneTimePickupDate == pickupDate) || (m.RegularPickupDay == pickupDate.DayOfWeek&&
-                (m.SuspendStartDate==null||m.SuspendStartDate>=pickupDate||m.SuspendEndDate<=pickupDate))).ToList();
+                (m.OneTimePickupDate == pickupDate || (m.RegularPickupDay == pickupDate.DayOfWeek&&
+                (m.SuspendStartDate==null||m.SuspendStartDate>=pickupDate||m.SuspendEndDate<=pickupDate)))).ToList();
             return View(pickups);
         }
 

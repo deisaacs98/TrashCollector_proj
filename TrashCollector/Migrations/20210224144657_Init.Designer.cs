@@ -10,7 +10,7 @@ using TrashCollector.Data;
 namespace TrashCollector.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210222203452_Init")]
+    [Migration("20210224144657_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0343f4de-fa8a-4ce7-b249-d9c8dc26899c",
-                            ConcurrencyStamp = "3e6bd4fe-dc75-4a5d-aa0b-a4caa07e8819",
+                            Id = "1e6e5294-2cde-41ab-a8f4-86ab1676aff6",
+                            ConcurrencyStamp = "73ce22bd-37c5-4543-a07c-b7e9aa8c83ce",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "09b44efd-ead6-4938-a40c-11b3a029c0e3",
-                            ConcurrencyStamp = "828c3cce-856e-4d90-b51c-a51813848df6",
+                            Id = "f7e2bcaf-dd30-4868-8e9f-29e0be1e7832",
+                            ConcurrencyStamp = "46390848-ee89-467a-8247-edf3f96d9738",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -243,11 +243,11 @@ namespace TrashCollector.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Balance")
+                        .HasColumnType("float");
+
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CompletedPickups")
-                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -257,6 +257,9 @@ namespace TrashCollector.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("NextPickupDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("OneTimePickupDate")
                         .HasColumnType("datetime2");

@@ -32,23 +32,12 @@
                 @Html.DisplayNameFor(model => model.ZipCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompletedPickups)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.RegularPickupDay)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SuspendStartDate)
+                @Html.DisplayNameFor(model => model.Balance)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OneTimePickupDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdentityUser)
-            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -80,20 +69,12 @@
                 @Html.DisplayFor(modelItem => item.RegularPickupDay)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SuspendStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendEndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimePickupDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdentityUser.Id)
+                @Html.DisplayFor(modelItem => item.Balance)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Suspend" asp-route-id="@item.Id">Suspend Service</a>
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>

@@ -23,7 +23,16 @@ namespace TrashCollector.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Employees.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.FirstOrDefaultAsync());
+            var employee = await applicationDbContext.FirstOrDefaultAsync();
+            if (employee == null)
+            {
+                return View("Create");
+            }
+            else
+            {
+
+                return View("Default", CheckPickups(employee, DateTime.Today));
+            }
         }
 
         // GET: Employees/Details/5
@@ -157,26 +166,15 @@ namespace TrashCollector.Controllers
             return _context.Employees.Any(e => e.Id == id);
         }
 
-        // GET: Employees/CheckPickups/5
-        public async Task<IActionResult> CheckPickups(int? id, DateTime pickupDate)
+        
+        public IEnumerable<Customer> CheckPickups(Employee employee, DateTime pickupDate)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var employee = await _context.Employees
-                .Include(e => e.IdentityUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (employee == null)
-            {
-                return NotFound();
-            }
-            var pickups = _context.Customers.Where(m => m.ZipCode == employee.ZipCode&&
-                !m.CompletedPickups.Contains(pickupDate)&&
-                (m.OneTimePickupDate == pickupDate || (m.RegularPickupDay == pickupDate.DayOfWeek&&
-                (m.SuspendStartDate==null||m.SuspendStartDate>=pickupDate||m.SuspendEndDate<=pickupDate)))).ToList();
-            return View(pickups);
+            
+            var pickups = _context.Customers.Where(m => m.ZipCode == employee.ZipCode &&
+                m.LastPickup!=pickupDate &&
+                (m.OneTimePickupDate == pickupDate || (m.RegularPickupDay == pickupDate.DayOfWeek &&
+                (m.SuspendStartDate == null || m.SuspendStartDate >= pickupDate || m.SuspendEndDate <= pickupDate)))).ToList();
+            return pickups;
         }
 
         
@@ -187,7 +185,7 @@ namespace TrashCollector.Controllers
         public async Task<IActionResult> ConfirmPickup(int id)
         {
             var customer = await _context.Customers.FirstOrDefaultAsync(m=>m.Id==id);
-            customer.CompletedPickups.Add(DateTime.Today);
+            customer.LastPickup=DateTime.Today;
             customer.Balance += 10.00;
             _context.Customers.Update(customer);
             await _context.SaveChangesAsync();

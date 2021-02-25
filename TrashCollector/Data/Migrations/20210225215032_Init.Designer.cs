@@ -10,7 +10,7 @@ using TrashCollector.Data;
 namespace TrashCollector.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210225171048_Init")]
+    [Migration("20210225215032_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "5848acb9-c976-4309-bf9a-c9f0426c5165",
-                            ConcurrencyStamp = "05865a37-1b7f-4d2f-b660-181460074e43",
+                            Id = "153ad613-6eba-4683-986b-8e687f99300e",
+                            ConcurrencyStamp = "2384d178-8745-49af-826d-b999c2003af5",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "8682f089-2d3e-4774-b6ec-d8519d609588",
-                            ConcurrencyStamp = "fecefb51-8f60-436b-98f3-abf292286b0d",
+                            Id = "065f5585-4e56-4e05-ba8f-1627e9e9e6cb",
+                            ConcurrencyStamp = "291bb345-d848-456b-8255-5233c61f4e75",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -257,6 +257,9 @@ namespace TrashCollector.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LastPickup")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("NextPickupDate")
                         .HasColumnType("datetime2");

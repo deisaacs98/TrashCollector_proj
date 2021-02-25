@@ -22,10 +22,6 @@ namespace TrashCollector.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        
-        [NotMapped]
-        public ICollection<DateTime> CompletedPickups { get; set; }
-
         public DayOfWeek RegularPickupDay { get; set; }
 
         public DateTime? SuspendStartDate { get; set; }
@@ -33,7 +29,8 @@ namespace TrashCollector.Models
         public DateTime? OneTimePickupDate { get; set; }
 
         public DateTime? NextPickupDate { get; set; }
-        
+        public DateTime? LastPickup { get; set; }
+
         public double Balance { get; set; }
 
         [ForeignKey("IdentityUser")]

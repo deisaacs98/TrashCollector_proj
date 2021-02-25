@@ -10,7 +10,7 @@
         const geocoder = new google.maps.Geocoder();
         const map = new google.maps.Map();
     }
-    @foreach (var item in Model) { item.Address = item.Street + " " + item.City + ", " + item.State + ", " + item.ZipCode; }
+    @foreach (var item in Model) { item.Address = item.Street + ", " + item.City + ", " + item.State + ", " + item.ZipCode; }
     
     function geocodeAddress(geocoder, resultsMap) {
         geocoder.geocode({ address: item.Address }, (results, status) => {
@@ -52,25 +52,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.ZipCode)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompletedPickups)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RegularPickupDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendStartDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OneTimePickupDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdentityUser)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -94,24 +75,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompletedPickups)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegularPickupDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendStartDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendEndDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimePickupDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdentityUser.Id)
             </td>
             <td>
                 <a asp-action="ConfirmPickup" asp-route-id="@item.Id">Confirm Pickup</a>

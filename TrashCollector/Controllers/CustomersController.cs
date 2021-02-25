@@ -30,7 +30,7 @@ namespace TrashCollector.Controllers
             }
             else
             {
-                return View("Details", customer.Id);
+                return View("Details", customer);
             }
             
         }

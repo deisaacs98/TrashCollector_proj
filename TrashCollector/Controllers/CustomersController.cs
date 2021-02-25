@@ -23,7 +23,16 @@ namespace TrashCollector.Controllers
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.FirstOrDefaultAsync());
+            var customer = await applicationDbContext.FirstOrDefaultAsync();
+            if(customer==null)
+            {
+                return View("Create");
+            }
+            else
+            {
+                return View("Details", customer.Id);
+            }
+            
         }
 
         // GET: Customers/Details/5

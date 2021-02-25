@@ -188,6 +188,7 @@ namespace TrashCollector.Controllers
         {
             var customer = await _context.Customers.FirstOrDefaultAsync(m=>m.Id==id);
             customer.CompletedPickups.Add(DateTime.Today);
+            customer.Balance += 10.00;
             _context.Customers.Update(customer);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

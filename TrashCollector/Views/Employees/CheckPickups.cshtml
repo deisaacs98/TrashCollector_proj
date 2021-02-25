@@ -6,16 +6,12 @@
 }
 <div id="map"></div>
 <script>
-    @foreach (var item in Model) { item.Address = item.Street + " " + item.City + ", " + item.State + ", " + item.ZipCode; }
     function initMap() {
         const geocoder = new google.maps.Geocoder();
-        const map = new google.maps.Map({
-            zoom: 8,
-        });
-
-
+        const map = new google.maps.Map();
     }
-
+    @foreach (var item in Model) { item.Address = item.Street + " " + item.City + ", " + item.State + ", " + item.ZipCode; }
+    
     function geocodeAddress(geocoder, resultsMap) {
         geocoder.geocode({ address: item.Address }, (results, status) => {
             if (status === "OK") {

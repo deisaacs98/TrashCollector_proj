@@ -17,10 +17,12 @@ namespace TrashCollector.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-
+        public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
+
+        
         [NotMapped]
         public ICollection<DateTime> CompletedPickups { get; set; }
 

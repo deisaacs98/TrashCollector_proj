@@ -5,12 +5,14 @@
     Layout = "_CustomerLayout";
 }
 
-<h1>Index</h1>
+<h1>Welcome to Trash Collector</h1>
+<h3>If you have not set up a pickup address, you will first need to register.</h3>
 
 <p>
+    <a asp-action="Create">Register for services</a>
     <a asp-action="Suspend" asp-route-id="@Model.Id">Suspend Pickup</a>
-    <a asp-action="Details" asp-route-id="@Model.Id">Details</a>
-   
+    <a asp-action="Details" asp-route-id="@Model.Id">Account Details</a>
+
 
 </p>
 

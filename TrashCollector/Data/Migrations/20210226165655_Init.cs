@@ -210,12 +210,12 @@ namespace TrashCollector.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "1c65d4ff-41ee-46a9-aee7-74a688c3ae3f", "d10ff394-2604-456b-a2d8-92b366ad8fc3", "Customer", "CUSTOMER" });
+                values: new object[] { "0dc76b87-7c65-463c-817d-b0fe2bf4a84c", "d3f8bef6-6000-42f2-a65e-12020a73e3cf", "Customer", "CUSTOMER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "6ee64361-dad4-4070-bb41-481c92040fd5", "910aa59a-72bf-4553-ac52-64b985fbfa0c", "Employee", "EMPLOYEE" });
+                values: new object[] { "b45161f9-59af-4701-8e4b-776f6a186048", "6a2c4fbd-18b4-494a-b097-19d24fb9eb64", "Employee", "EMPLOYEE" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

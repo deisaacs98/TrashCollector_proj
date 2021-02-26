@@ -10,7 +10,7 @@ using TrashCollector.Data;
 namespace TrashCollector.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210226072802_Init")]
+    [Migration("20210226075749_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4f57b02-bf5a-42ad-9f21-1aa0ce3d8dec",
-                            ConcurrencyStamp = "2c3a35b8-d21a-4e99-b780-7af11a9eee9c",
+                            Id = "b319842e-7ec9-4171-a6c9-7deed27f3068",
+                            ConcurrencyStamp = "54e56430-ccc8-4c59-995f-160991c50829",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "2a78c50a-e9fc-4c68-be64-ddd155502a82",
-                            ConcurrencyStamp = "84f47f69-69bb-4b1c-aafe-39f17e2bbab0",
+                            Id = "0a7d6ba5-9dd8-4036-ba25-8e45162623fb",
+                            ConcurrencyStamp = "fe6e944d-04df-4b92-bf88-cad713d5564b",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });

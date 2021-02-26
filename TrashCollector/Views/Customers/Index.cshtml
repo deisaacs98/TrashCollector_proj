@@ -8,16 +8,9 @@
 <h1>Index</h1>
 
 <p>
-    @if (Model.Id == 0)
-    {
-        <a asp-action="Create">Register for service</a>
-    }
-    else
-    {
-        <a asp-action="Suspend" asp-route-id="@Model.Id">Suspend Pickup</a>
-        <a asp-action="Details" asp-route-id="@Model.Id">Details</a>
-    }
-
+    <a asp-action="Suspend" asp-route-id="@Model.Id">Suspend Pickup</a>
+    <a asp-action="Details" asp-route-id="@Model.Id">Details</a>
+   
 
 </p>
 

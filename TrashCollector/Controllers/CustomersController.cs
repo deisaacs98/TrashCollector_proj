@@ -24,7 +24,7 @@ namespace TrashCollector.Controllers
         {
             var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
             var customer = await applicationDbContext.FirstOrDefaultAsync();
-            if(customer==null)
+            if (customer==null)
             {
                 return View("Create");
             }

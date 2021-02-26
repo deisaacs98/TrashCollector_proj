@@ -7,13 +7,39 @@
 
 <h1>Today's Pickups</h1>
 
-
-<div class="container-fluid">
-    
+<div class="row">
     <div id="map"></div>
-
-
+    <script type="text/javascript">
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: { lat: -34.397, lng: 150.644 },
+            });
+            const geocoder = new google.maps.Geocoder();
+            document.getElementById('submit').addEventListener('click', () => {
+                geocodeAddress(geocoder, map);
+            });
+        }
+        function geocodeAddress(geocoder, resultsMap) {
+            const address = document.getElementById("address").value;
+            geocoder.geocode({ address: address }, (results, status) => {
+                if (status === "OK") {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location,
+                    });
+                } else {
+                    alert(
+                        "Geocode was not successful for the following reason: " + status
+                    );
+                }
+            });
+        }
+    </script>
+    <script src=ApiKeys.GoogleMaps async></script>
 </div>
+
 
 <table class="table">
     <thead>
@@ -63,11 +89,13 @@
             <td>
                 <div>
                     <input class="d-none" id="address" value=item.Address />
-                    <input class="btn btn-primary" id="submit" value="Pin To Map" />
+                    <input class="btn btn-primary" onclick="submit" value="Pin To Map" />
                 </div>
+                
                 <a asp-action="ConfirmPickup" asp-route-id="@item.Id">Confirm Pickup</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+

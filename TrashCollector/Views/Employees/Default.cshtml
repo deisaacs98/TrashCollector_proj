@@ -6,9 +6,13 @@
 }
 
 <h1>Today's Pickups</h1>
+
+
 <div class="container-fluid">
     
     <div id="map"></div>
+
+
 </div>
 
 <table class="table">
@@ -21,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.Street)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.City)
@@ -36,7 +40,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-
+        
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
@@ -45,7 +49,7 @@
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
+                @Html.DisplayFor(modelItem => item.Street)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.City)
@@ -57,6 +61,10 @@
                 @Html.DisplayFor(modelItem => item.ZipCode)
             </td>
             <td>
+                <div>
+                    <input class="d-none" id="address" value=item.Address />
+                    <input class="btn btn-primary" id="submit" value="Pin To Map" />
+                </div>
                 <a asp-action="ConfirmPickup" asp-route-id="@item.Id">Confirm Pickup</a>
             </td>
         </tr>

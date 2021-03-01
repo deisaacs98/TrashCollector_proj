@@ -6,21 +6,21 @@
     <title>@ViewData["Title"] - TrashCollector</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
-    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type="text/javascript">
+        let map;
         function initMap() {
-            const map = new google.maps.Map(document.getElementById('map'), {
+            const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 8,
                 center: { lat: -34.397, lng: 150.644 },
             });
-            const geocoder = new google.maps.Geocoder();
-            document.getElementById('submit').addEventListener('click', () => {
-                geocodeAddress(geocoder, map);
-            });
         }
+        
+        const geocoder = new google.maps.Geocoder();
+        document.getElementById("submit").addEventListener("click", () => {
+            geocodeAddress(geocoder, map);
+        });
         function geocodeAddress(geocoder, resultsMap) {
-            const address = document.getElementById("address").value;
+            const address = document.getElementById("pinAddress").value;
             geocoder.geocode({ address: address }, (results, status) => {
                 if (status === "OK") {
                     resultsMap.setCenter(results[0].geometry.location);
@@ -35,7 +35,6 @@
                 }
             });
         }
-        initMap();
     </script>
 </head>
 <body>
@@ -74,10 +73,8 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
-
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src=ApiKeys.GoogleMaps async></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH0G1vooh_eqH4Oz69UiK3UeIqtaCBKnkY&callback=initMap" async></script>
     
     @RenderSection("Scripts", required: false)
 </body>

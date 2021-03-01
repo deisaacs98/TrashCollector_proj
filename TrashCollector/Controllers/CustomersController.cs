@@ -20,6 +20,8 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Customers
+
+        //Issue here with customer routing. Does not send customer account specific to user. Will fix in future updates
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
